@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<h1>{% block title %}Menu relatórios{% endblock %}</h1>
+<p>
+  <a href="{{ url_for('rel_turmas')}} ">Relação de turmas</a><br />
+  <a href="{{ url_for('lst_hst') }}">Evolução do aluno</a><br />
+  <p>------------Opcionais--------------------------</p>
+  <a href="{{ url_for('aln_niv') }}">Relação de alunos por nível</a><br />
+  <a href="#">Gráfico de evolução de alunos</a><br />
+  <a href="{{ url_for('aln_trm') }}">Relação de alunos por turma</a>
+</p>
+
+{% endblock %}

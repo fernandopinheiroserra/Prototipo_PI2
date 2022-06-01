@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %}Listagem de colaboradores{% endblock %}</h1>
+<p>
+    <a href="{{ url_for('lst_func')}}" class="btn btn-primary">Pesquisar</a>
+    <a href="{{ url_for('inc_func')}}" class="btn btn-primary">Incluir</a>
+<br/>
+<p><h4>Clique no Id para alterar ou excluir</h4></p>
+<div>
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Cargo</th>
+            <th>Usuário</th>
+        </tr>
+        {% for lista in lista_func %}
+        <tr>
+            <td><a href="{{ url_for('alt_func',id=lista['func_id']) }}"> {{ lista['func_id'] }}</a></td>
+              <td> {{ lista['func_nome'] }}</td>
+              <td> {{ lista['func_cargo'] }}</td>
+              <td> {{ lista['func_username'] }}</td>
+        </tr>      
+        {% endfor %}
+    </table>    
+</div>
+</p>
+
+{% endblock %}

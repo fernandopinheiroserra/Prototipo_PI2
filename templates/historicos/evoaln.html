@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %}Evolução do aluno{% endblock %}</h1>
+<p>
+    <form method="POST">
+        <div class="form-group">
+            <label for="form_ra">RA do aluno</label>
+            <input type="Text" name="form_ra" placeholder="RA do Aluno" class="form-control">
+            <!-- <label for="form_nome">Nome do aluno</label>
+            <input type="text" name="form_nome"
+            placeholder="Nome do aluno" class="form-control"></input> -->
+        </div>
+        <div class="form-group">
+            <label for="form_nv_ant">Nível Anterior</label>
+            <input type="text" name="form_nv_ant"
+                placeholder="Nível anterior" class="form-control"></input>
+        </div>
+        <div>
+            <label for="form_nv_atual">Nivel atual</label>
+            <input type="text" name="form_nv_atual"
+                placeholder="Nivel atual do aluno" class="form-control"></input>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Pesquisar</button>
+        </div>
+    </form>
+</p>
+
+{% endblock %}

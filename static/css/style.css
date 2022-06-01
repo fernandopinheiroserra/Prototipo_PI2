@@ -1,0 +1,13 @@
+td,
+th,
+tr,
+tbody {
+  border-bottom: 2px solid #c8c8c8;
+  border-left: 2px solid #c8c8c8;
+  border-right: 2px solid #c8c8c8;
+  border-collapse: collapse;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 40px;
+  font-size: 0.9em;
+}

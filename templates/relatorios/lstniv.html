@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %}Listagem de Niveis{% endblock %}</h1>
+<p>
+<div>
+    {% for list in list_nivel %}
+      
+      {{ list|safe }}</a></td>
+    {% endfor %} 
+</div>
+</p>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %}Listagem de Históricos{% endblock %}</h1>
+<p>
+    <a href="{{ url_for('lst_hst')}}" class="btn btn-primary">Nova Pesquisa</a>
+<br/>
+<div>
+  <table class="table table-bordered"> 
+    <tr>
+      <th>RA</th>
+      <th>Nome do aluno</th>
+      <th>Nível anterior</th>
+      <th>Nível alcançado</th>
+      <th>Turma anterior</th>
+      <th>Turma "atual"</th>
+      <th>Data movimento</th>
+      <th>Alterado por</th>
+      <th>Aprovado por</th>
+      <th>Observação</th>
+    </tr>
+    {% for lista in lista_hst %}
+      <tr>
+        <td>{{ lista['hst_cod_aln'] }}</a></td>
+        <td>{{ ws_nome }}</td>
+        <td>{{ lista['hst_nv_ant'] }}</td>
+        <td>{{ lista['hst_nv_atual'] }}</td>
+        <td>{{ lista['hst_trm_ant'] }}</td>
+        <td>{{ lista['hst_trm_atual'] }}</td>
+        <td>{{ lista['hst_data_alt'] }}</td>
+        <td>{{ lista['hst_cod_alt'] }}</td>
+        <td>{{ lista['hst_cod_aprov'] }}</td>
+        <td>{{ lista['hst_obs'] }}</td>
+      </tr>
+    {% endfor %} 
+  </table>
+</div>
+</p>
+
+{% endblock %}

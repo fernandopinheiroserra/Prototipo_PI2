@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %}Mudança de turma{% endblock %}</h1>
+<p>
+    <a href="{{ url_for('lst_aln')}}" class="btn btn-primary">Pesquisar</a>
+<br/>
+<div>
+  <table class="table table-bordered"> 
+    <tr>
+      <th>RA</th>
+      <th>Nome do aluno(a)</th>
+      <th>Serie</th>
+      <th>Turma</th>
+      <th>Nível</th>
+      <th>E-mail Responsável</th>
+    </tr>
+    {% for lista in lista_aln %}
+    <tr>
+      <td><a href="{{ url_for('alt_mudtrm',id=lista['aln_id'])}}">{{ lista['aln_id'] }} </a></td>
+      <td>{{ lista['aln_nome'] }}</td>
+      <td>{{ lista['aln_serie'] }}</td>
+      <td>{{ lista['aln_turma'] }}</td>
+      <td>{{ lista['aln_nivel'] }}</td>
+      <td>{{ lista['aln_email_resp'] }}</td>
+    </tr>
+    {% endfor %} 
+</table>
+
+</div>
+</p>
+
+{% endblock %}

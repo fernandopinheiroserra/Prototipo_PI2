@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{% block title %}Cadastro de alunos - {{ alunos['aln_nome'] }}" {% endblock %}</h2>
+  <p>
+   <form method="post">
+      <div class="form-group">
+        <label for="form_ra">RA do aluno (*)</label>
+        <input readonly type="text" name="form_ra" class="form-control"
+             value="{{ request.form['form_ra'] or alunos['aln_id']}}"></input>
+   </div>
+   <div class="form-group">
+      <label for="form_nome">Nome do aluno(a) (*)</label>
+      <input type="text" name="form_nome" class="form-control"
+           value="{{ request.form['form_nome'] or alunos['aln_nome'] }}"></input>
+   </div>
+   <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="form_matriculado">
+    <label class="form-check-label" for="form_matriculado">Matriculado</label>
+  </div>
+   <div class="form-group">
+        <label for="form_serie">Serie</label>
+        <input type="text" name="form_serie" class="form-control"
+           value="{{ request.form['form_serie'] or alunos['aln_serie'] }}"></input>
+     </div>
+     <div class="form-group">
+        <label for="form_turma">Turma</label>
+        <input readonly type="text" name="form_turma" class="form-control"
+           value="{{ request.form['form_turma'] or alunos['aln_turma'] }}"></input>
+     </div>
+     <div class="form-group">
+        <label for="form_nivel">Nivel</label>
+        <input readonly type="text" name="form_nivel"
+           class="form-control"
+           value="{{ request.form['form_nivel'] or alunos['aln_nivel']}}"></input>
+     </div>
+     <div class="form-group">
+        <label for="form_email_resp">E-mail do responsável</label>
+        <input type="text" name="form_email_resp"
+           placeholder="E-mail do responsável" class="form-control"
+           value="{{ request.form['form_email_resp'] or alunos['aln_email_resp']}}"></input>
+     </div>
+     <div class="form-group">
+        <label for="form_obs">Observação</label>
+        <textarea name="form_obs"  placeholder="Observações" class="form-control">{{ request.form['form_obs'] or alunos['aln_obs'] }}</textarea>
+     </div>
+     <br/>
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary">Alterar</button>
+      </div>
+      </form>  
+      <form action="{{ url_for('del_aln', id=alunos['aln_id']) }}" method="POST">
+        <input type="submit" value="Excluir"
+              class="btn btn-danger btn-sm"
+              onclick="return confirm('Você tem certeza que quer apagar ?')">
+      </form>
+</p>
+{% endblock %}

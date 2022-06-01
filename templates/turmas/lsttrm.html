@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %}Listagem de Turmas{% endblock %}</h1>
+<p>
+  <form method="POST">
+    <div class="form-group">
+      <label for="form_cod_prof">Código da Professor(a)</label>
+      <input type="text" name="form_cod_prof"
+         placeholder="´Código do Professor(a)" class="form-control"></input>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Pesquisar</button>
+    </form>
+  </div>
+<br/>
+</p>
+
+{% endblock %}

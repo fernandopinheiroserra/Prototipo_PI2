@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{% block title %}Mudaça de Turmas{% endblock %}</h2>
+<p>
+   <form method="post">
+        <div class="form-group">
+            <label for="form_ra">RA do aluno (*)</label>
+            <input readonly type="text" name="form_ra"
+                placeholder="RA do aluno" class="form-control"
+                value="{{ alunos['aln_id']}}"></input>
+        </div>
+        <div class="form-group">
+            <label for="form_trm_ant">Turma anterior</label>
+            <input readonly type="text" name="form_trm_ant"
+                class="form-control"
+                value="{{ alunos['aln_turma'] }}"></input>
+        </div>
+        <div class="form-group">
+            <label for="form_trm_atual">Turma atual</label>
+            <input type="text" name="form_trm_atual"
+                class="form-control"
+                value="{{ request.form['form_trm_atual']}}"></input>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Incluir</button>
+        </div>
+   </form>
+</p>
+
+{% endblock %}

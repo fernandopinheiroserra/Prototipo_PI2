@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{% block title %}Cadastro de Turmas - Turma {{ turmas['trm_id'] }} {% endblock %}</h2>
+  <p>
+    <form method="POST">
+      <div class="form-group">
+        <label for="form_cod_prof">Código do professor</label>
+        <input type="text" name="form_cod_prof" class="form-control"
+             value="{{ request.form['form_cod_prof'] or turmas['trm_cod_prof']}}"></input>
+    </div>
+    <div class="form-group">
+        <label for="form_nom_prof">Professor(a)</label>
+        <input readonly type="text" name="form_nom_prof"
+             class="form-control"
+           value="{{ request.form['form_nom_prof']}}"></input>
+     </div>
+     <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="form_ativo" value="{{ request.form['form_ativo'] or turmas['trm_ativo'] }}" >
+        <label class="form-check-label" for="form_ativo">Ativa</label>
+      </div>
+     <div class="form-group">
+        <label for="form_horario">Horário</label>
+        <input type="text" name="form_horario"
+           placeholder="Horário" class="form-control"
+           value="{{ request.form['form_horario'] or turmas['trm_horario']}}"></input>
+     </div>
+        <label for="form_obs">Observação</label>
+        <textarea name="form_obs" placeholder="Observações" class="form-control">{{ request.form['trm_obs'] or turmas['trm_obs'] }}</textarea>
+     </div>
+     <br/>
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary">Alterar</button>
+      </div>
+      </form>  
+      <form action="{{ url_for('del_trm', id=turmas['trm_id']) }}" method="POST">
+        <input type="submit" value="Excluir"
+              class="btn btn-danger btn-sm"
+              onclick="return confirm('Você tem certeza que quer apagar ?')">
+      </form>
+</p>
+{% endblock %}

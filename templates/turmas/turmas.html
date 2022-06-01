@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %}Listagem de turmas{% endblock %}</h1>
+<p>
+    <a href="{{ url_for('lst_trm')}}" class="btn btn-primary">Pesquisar</a>
+    <a href="{{ url_for('inc_trm')}}" class="btn btn-primary">Incluir</a>
+<br/>
+<div>
+  <table class="table table-bordered">
+    <tr>
+      <th>Id</th>
+      <td>Ativo</td>
+      <th>Código Professor</th>
+      <th>Professor</th>
+      <th>Horário</th>
+    </tr>
+    {% for lista in lista_trm %}
+      <tr>
+        <td> <a href="{{ url_for('alt_trm',id=lista['trm_id']) }}"> {{ lista['trm_id'] }} </a></td>
+        <td>{% if lista['trm_ativo'] == True %}
+             Sim
+             {% else %} 
+             Não
+            {% endif %}</td>
+        <td>{{ lista['trm_cod_prof'] }}</td>
+        <td>{{ lista.trn_cod_prof }}</td>
+        <td>{{ lista['trm_horario'] }}</td>
+      </tr>
+    {% endfor %} 
+  </table>
+</div>
+</p>
+
+{% endblock %}

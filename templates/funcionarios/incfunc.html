@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{% block title %}Cadastro de colaboradores - Inclusão{% endblock %}</h2>
+  <p>
+    <form method="post">
+      <div class="col-xs-4">
+          <label for="func_nome">Nome (*)</label>
+          <input type="text" name="form_nome"
+               placeholder="Nome do colaborador" class="form-control" id="func_nome"
+               value="{{ request.form['forn_nome']}}"></input>
+      </div>
+      <div>
+          Cargo
+          <select class="form-select" aria-label="Cargo" name="form_cargo">
+              <option value="Professor">Professor</option>
+              <option value="Coordenador">Coordenador</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="func_username">Nome de usuário</label>
+        <input type="text" name="form_username" placeholder="Nome do usuário" class="form-control" id="func_username"
+        value="{{ request.form['form_username']}}">
+    </div>
+    <div class="form-group">
+        <label for="func_username">Senha</label>
+        <input type="password" name="form_senha" placeholder="Senha" class="form-control" id="func_username"
+        value="{{ request.form['form_username']}}">
+    </div>
+    <div class="form-group">
+          <label for="for_obs">Observação</label>
+          <textarea name="form_obs" placeholder="Observação"
+                  class="form-control"></textarea>
+      </div>
+      <br/>
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary">Incluir</button>
+      </div>
+    </form>
+</p>
+{% endblock %}

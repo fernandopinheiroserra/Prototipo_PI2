@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{% block title %}Cadastro de Turmas{% endblock %}</h2>
+<p>
+   <form method="post">
+     <div class="form-group">
+         <label for="form_cod_prof">Código do professor(a) (*)</label>
+         <input type="text" name="form_cod_prof"
+              placeholder="Código do professor" class="form-control"
+            value="{{ request.form['form_cod_prof']}}"></input>
+      </div>
+          <div class="form-group">
+         <label for="form_professor">Nome do Professor(a)</label>
+         <input readonly type="text" name="form_professor"
+            class="form-control"
+            value="{{ request.form['form_professor']}}"></input>
+      </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" name="form_ativo" checked>
+        <label class="form-check-label" for="form_ativo">Ativa</label>
+      </div>
+      <div class="form-group">
+        <label for="form_horario">Horário (*)</label>
+        <input type="text" name="form_horario"
+             placeholder="Horário" class="form-control"
+           value="{{ request.form['form_horario']}}"></input>
+     </div>
+     <div class="form-group">
+         <label for="form_oobs">Observação</label>
+         <textarea name="form_obs"  placeholder="Observações" class="form-control">{{ request.form['form_obs'] }}</textarea>
+      </div>
+      <br/>
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary">Incluir</button>
+      </div>
+   </form>
+</p>
+
+{% endblock %}

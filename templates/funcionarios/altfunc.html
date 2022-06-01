@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{% block title %}Cadastro de colaboradores - {{ funcionarios['func_nome'] }} {% endblock %}</h2>
+  <p>
+    <form method="post">
+      <div class="form-group">
+        <label for="form_id">ID</label>
+        <input readonly type="text" name="form_id" class="form-control"
+             value="{{ request.form['form_id'] or funcionarios['func_id']}}"></input>
+      </div>
+      <div class="form-group">
+          <label for="form_nome">Nome (*)</label>
+          <input type="text" name="form_nome"
+               placeholder="Nome do colabotador(a)" class="form-control"
+               value="{{ request.form['form_nome'] or funcionarios['func_nome']}}"></input>
+      </div>
+      <div class="form-group">
+        <label for="form_nome">Cargo (*)</label>
+        <input type="text" name="form_cargo"
+             placeholder="Cargo" class="form-control"
+             value="{{ request.form['form_cargo'] or funcionarios['func_cargo']}}"></input>
+      </div>
+      <div class="form-group">
+        <label for="form_username">Usuário (*)</label>
+        <input type="text" name="form_username"
+             placeholder="Usuário" class="form-control"
+             value="{{ request.form['form_username'] or funcionarios['func_username']}}"></input>
+        </div>
+        <div class="form-group">
+            <label for="form_senha">Senha (*)</label>
+            <input type="password" name="form_senha"
+             placeholder="Senha" class="form-control"
+             value="{{ request.form['form_senha'] or funcionarios['func_password']}}"></input>
+        </div>
+        <div class="form-group">
+          <label for="form_obs">Observação</label>
+          <textarea name="form_obs" placeholder="Observação"
+                  class="form-control">{{ request.form['form_obs'] or funcionarios['func_obs'] }}</textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Alterar</button>
+        </div>
+      </form>  
+      <form action="{{ url_for('del_func', id=funcionarios['func_id']) }}" method="POST">
+        <input type="submit" value="Excluir"
+              class="btn btn-danger btn-sm"
+              onclick="return confirm('Você tem certeza que quer apagar ?')">
+      </form>
+</p>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %}
+<h1>{% block title %} Menu de cadastro {% endblock %}</h1>
+<p>
+  <a href="{{ url_for('cad_funcionarios')}}">Colaboradores</a><br />
+  <a href="{{ url_for('cad_turmas')}} ">Turmas</a><br />
+  <a href="{{ url_for('cad_alunos')}}">Aluno</a><br />
+  <a href="{{ url_for('mudanca_trm') }}">Mudança de turma</a><br />
+  <a href="{{ url_for('mudanca_nv') }}">Mudança de nível</a>
+</p>
+{% endblock %}
