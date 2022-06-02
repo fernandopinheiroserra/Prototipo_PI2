@@ -45,3 +45,7 @@ database.db - Banco de dados SQLite<br>
 init_db.py - Programa em Python, que cria os bancos de dados, usando o script.sql<br>
 Procfile - Arquivo do Heroku<br>
 /templates/index.html - Página inicial do projeto<br>
+
+
+Protótipo - telas<br>
+https://www.figma.com/file/uA3eyplUGTAtrW5s8WGmTO/Projeto-Integrador?node-id=0%3A1
